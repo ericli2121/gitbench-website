@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gitbench - pytest for AI Agents</title>
+    <meta name="description" content="Git-native evaluation platform that tracks LLM agent performance across every commit. Like CI/CD for agent quality.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        code, pre {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold gradient-text">Gitbench</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-gray-600 hover:text-gray-900">Features</a>
+                    <a href="#how-it-works" class="text-gray-600 hover:text-gray-900">How It Works</a>
+                    <a href="#comparison" class="text-gray-600 hover:text-gray-900">vs Others</a>
+                    <a href="#get-started" class="text-gray-600 hover:text-gray-900">Get Started</a>
+                    <a href="https://github.com/gitbench/gitbench" target="_blank" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700">
+                        GitHub ⭐
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-6">
+                    pytest for <span class="gradient-text">AI Agents</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Git-native evaluation platform that tracks LLM agent performance across every commit.
+                    <strong>Don't trust agents without evals.</strong>
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <a href="#get-started" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 shadow-lg">
+                        Get Started →
+                    </a>
+                    <a href="https://github.com/gitbench/gitbench" target="_blank" class="inline-flex items-center justify-center px-8 py-4 border border-gray-300 text-lg font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 shadow-lg">
+                        View on GitHub
+                    </a>
+                </div>
+
+                <!-- Demo Terminal -->
+                <div class="max-w-3xl mx-auto">
+                    <div class="bg-gray-900 rounded-lg shadow-2xl overflow-hidden">
+                        <div class="bg-gray-800 px-4 py-2 flex items-center">
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <span class="ml-4 text-sm text-gray-400">terminal</span>
+                        </div>
+                        <div class="p-6 text-left">
+                            <pre class="text-green-400 text-sm"><code><span class="text-gray-500">$</span> gitbench run-eval agent-coding-suite
+
+<span class="text-blue-400">🚀 Running eval: agent-coding-suite</span>
+<span class="text-gray-400">📦 Commit: abc123 (feat: improve prompts)</span>
+
+<span class="text-green-400">✓</span> basic-coding          <span class="text-gray-500">Pass (0.95)</span>  2.3s
+<span class="text-green-400">✓</span> error-handling        <span class="text-gray-500">Pass (0.91)</span>  3.1s
+<span class="text-green-400">✓</span> refactoring           <span class="text-gray-500">Pass (0.88)</span>  4.2s
+
+<span class="text-green-400">✨ Results: 3/3 passed (94% avg score)</span>
+<span class="text-gray-400">💰 Cost: $0.023  ⏱️  Time: 9.6s</span>
+
+<span class="text-blue-400">📈 Compared to previous: +5% improvement</span></code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">The Problem</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Everyone is building AI agents, but nobody can measure quality or discover good agents
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-red-50 rounded-lg p-8 border-2 border-red-200">
+                    <div class="text-4xl mb-4">😓</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">No Easy Way to Benchmark</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li>✗ Manual testing doesn't scale</li>
+                        <li>✗ No systematic quality measurement</li>
+                        <li>✗ Can't track performance across code changes</li>
+                        <li>✗ "Did my prompt change help or hurt?" is unanswerable</li>
+                    </ul>
+                </div>
+
+                <div class="bg-red-50 rounded-lg p-8 border-2 border-red-200">
+                    <div class="text-4xl mb-4">🔍</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">No Place to Find Evaluated Agents</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li>✗ GitHub has 156K+ agent repos with no quality signals</li>
+                        <li>✗ Can't tell if an agent works before installing</li>
+                        <li>✗ Everyone rebuilds similar agents from scratch</li>
+                        <li>✗ Star counts ≠ actual quality</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-20 bg-gradient-to-br from-purple-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">The Solution</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Treat agent evals like unit tests — run them in CI/CD, track results with git
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg p-8 shadow-lg">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Git-Native Testing</h3>
+                    <p class="text-gray-600">
+                        Run eval suite on every commit. Results stored in <code class="bg-gray-100 px-2 py-1 rounded">.gitbench/</code>
+                        alongside your code. Version control for agent quality.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg p-8 shadow-lg">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Historical Tracking</h3>
+                    <p class="text-gray-600">
+                        See performance trends across commits. Instant regression detection.
+                        Know exactly when quality improved or degraded.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg p-8 shadow-lg">
+                    <div class="text-4xl mb-4">🏪</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Verified Marketplace</h3>
+                    <p class="text-gray-600">
+                        Discover agents with real eval scores (94% pass rate, not just ⭐⭐⭐⭐⭐).
+                        Install with benchmarks included.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Gitbench?</h2>
+                <p class="text-xl text-gray-600">The only eval platform built for developers, not data scientists</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature Cards -->
+                <div class="p-6 bg-gray-50 rounded-lg">
+                    <h4 class="font-semibold text-lg mb-2">💾 Own Your Data</h4>
+                    <p class="text-gray-600 text-sm">Results in your repo, not vendor's database. Git push to backup.</p>
+                </div>
+
+                <div class="p-6 bg-gray-50 rounded-lg">
+                    <h4 class="font-semibold text-lg mb-2">💰 Zero Infrastructure Cost</h4>
+                    <p class="text-gray-600 text-sm">Run locally. Pay only for LLM API calls, not eval platform fees.</p>
+                </div>
+
+                <div class="p-6 bg-gray-50 rounded-lg">
+                    <h4 class="font-semibold text-lg mb-2">🔄 100% Reproducible</h4>
+                    <p class="text-gray-600 text-sm"><code>git checkout abc123 && gitbench run-eval</code> — exact reproduction via git.</p>
+                </div>
+
+                <div class="p-6 bg-gray-50 rounded-lg">
+                    <h4 class="font-semibold text-lg mb-2">🛠️ Framework Agnostic</h4>
+                    <p class="text-gray-600 text-sm">Works with any framework: LangChain, LlamaIndex, AutoGen, raw APIs.</p>
+                </div>
+
+                <div class="p-6 bg-gray-50 rounded-lg">
+                    <h4 class="font-semibold text-lg mb-2">✈️ Works Offline</h4>
+                    <p class="text-gray-600 text-sm">No internet needed. Run in airgapped datacenter or on airplane wifi.</p>
+                </div>
+
+                <div class="p-6 bg-gray-50 rounded-lg">
+                    <h4 class="font-semibold text-lg mb-2">🔍 Git Tooling Integration</h4>
+                    <p class="text-gray-600 text-sm"><code>git bisect</code> to find breaking commit, <code>git diff</code> for score changes.</p>
+                </div>
+
+                <div class="p-6 bg-gray-50 rounded-lg">
+                    <h4 class="font-semibold text-lg mb-2">🤖 AI Self-Improvement</h4>
+                    <p class="text-gray-600 text-sm">Analyzes failures, generates fixes, creates PR automatically.</p>
+                </div>
+
+                <div class="p-6 bg-gray-50 rounded-lg">
+                    <h4 class="font-semibold text-lg mb-2">🏢 On-Premise Marketplace</h4>
+                    <p class="text-gray-600 text-sm">Internal agent discovery within corporate firewall.</p>
+                </div>
+
+                <div class="p-6 bg-gray-50 rounded-lg">
+                    <h4 class="font-semibold text-lg mb-2">📦 Agent-Eval Bundling</h4>
+                    <p class="text-gray-600 text-sm">Agents ship with their benchmarks. Install code + tests together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
+                <p class="text-xl text-gray-600">Three simple steps to start measuring agent quality</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">1</div>
+                    <h3 class="text-xl font-bold mb-4">Install & Setup</h3>
+                    <div class="bg-gray-900 rounded-lg p-4 text-left">
+                        <pre class="text-green-400 text-sm"><code><span class="text-gray-500">$</span> pip install gitbench
+<span class="text-gray-500">$</span> gitbench init</code></pre>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">2</div>
+                    <h3 class="text-xl font-bold mb-4">Run Evals</h3>
+                    <div class="bg-gray-900 rounded-lg p-4 text-left">
+                        <pre class="text-green-400 text-sm"><code><span class="text-gray-500">$</span> gitbench run-eval my-agent
+<span class="text-blue-400">✨ 8/10 passed (87% avg)</span></code></pre>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">3</div>
+                    <h3 class="text-xl font-bold mb-4">Track & Improve</h3>
+                    <div class="bg-gray-900 rounded-lg p-4 text-left">
+                        <pre class="text-green-400 text-sm"><code><span class="text-gray-500">$</span> gitbench web-serve
+<span class="text-blue-400">📊 Dashboard: localhost:8000</span></code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <a href="#get-started" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700">
+                    Get Started Now →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Gitbench vs Others</h2>
+                <p class="text-xl text-gray-600">Why developers choose Gitbench over hosted eval platforms</p>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full bg-white shadow-lg rounded-lg">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-sm font-semibold text-gray-900">Feature</th>
+                            <th class="px-6 py-4 text-center text-sm font-semibold text-purple-600">Gitbench</th>
+                            <th class="px-6 py-4 text-center text-sm font-semibold text-gray-500">Braintrust</th>
+                            <th class="px-6 py-4 text-center text-sm font-semibold text-gray-500">LangSmith</th>
+                            <th class="px-6 py-4 text-center text-sm font-semibold text-gray-500">W&B</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 text-sm text-gray-900">Cost Model</td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-600 font-semibold">Free (local)</span></td>
+                            <td class="px-6 py-4 text-center text-gray-500">$500-5K/mo</td>
+                            <td class="px-6 py-4 text-center text-gray-500">$500-5K/mo</td>
+                            <td class="px-6 py-4 text-center text-gray-500">$500-5K/mo</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-6 py-4 text-sm text-gray-900">Data Ownership</td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-600 font-semibold">✓</span> Your repo</td>
+                            <td class="px-6 py-4 text-center text-gray-500">Their DB</td>
+                            <td class="px-6 py-4 text-center text-gray-500">Their DB</td>
+                            <td class="px-6 py-4 text-center text-gray-500">Their DB</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-sm text-gray-900">Git Integration</td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-600 font-semibold">✓</span> Native</td>
+                            <td class="px-6 py-4 text-center text-gray-500">Via API</td>
+                            <td class="px-6 py-4 text-center text-gray-500">Via API</td>
+                            <td class="px-6 py-4 text-center text-gray-500">Via API</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-6 py-4 text-sm text-gray-900">Reproducibility</td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-600 font-semibold">✓</span> Via git</td>
+                            <td class="px-6 py-4 text-center text-gray-500">Manual</td>
+                            <td class="px-6 py-4 text-center text-gray-500">Manual</td>
+                            <td class="px-6 py-4 text-center text-gray-500">Manual</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-sm text-gray-900">Works Offline</td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-600 font-semibold">✓</span> Yes</td>
+                            <td class="px-6 py-4 text-center text-gray-500">✗</td>
+                            <td class="px-6 py-4 text-center text-gray-500">✗</td>
+                            <td class="px-6 py-4 text-center text-gray-500">✗</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-6 py-4 text-sm text-gray-900">Agent Marketplace</td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-600 font-semibold">✓</span> Built-in</td>
+                            <td class="px-6 py-4 text-center text-gray-500">✗</td>
+                            <td class="px-6 py-4 text-center text-gray-500">✗</td>
+                            <td class="px-6 py-4 text-center text-gray-500">✗</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-sm text-gray-900">Framework Lock-in</td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-600 font-semibold">✓</span> None</td>
+                            <td class="px-6 py-4 text-center text-gray-500">Some</td>
+                            <td class="px-6 py-4 text-center text-gray-500">LangChain</td>
+                            <td class="px-6 py-4 text-center text-gray-500">Some</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-12 text-center">
+                <p class="text-lg text-gray-600 italic">
+                    "They're building observability tools. Gitbench is building quality infrastructure."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Started -->
+    <section id="get-started" class="py-20 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-8">Ready to Measure Agent Quality?</h2>
+            <p class="text-xl text-purple-100 mb-12">
+                Join developers who treat agent evals like unit tests
+            </p>
+
+            <div class="bg-white rounded-lg shadow-xl p-8 text-left">
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Quick Start</h3>
+                    <div class="bg-gray-900 rounded-lg p-6">
+                        <pre class="text-green-400 text-sm"><code><span class="text-gray-500"># Install</span>
+pip install gitbench
+
+<span class="text-gray-500"># Initialize project</span>
+gitbench init
+
+<span class="text-gray-500"># Create eval script</span>
+gitbench init-eval my-agent
+
+<span class="text-gray-500"># Run evaluations</span>
+gitbench run-eval my-agent
+
+<span class="text-gray-500"># View results in browser</span>
+gitbench web-serve</code></pre>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://github.com/gitbench/gitbench" target="_blank" class="flex-1 inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700">
+                        ⭐ Star on GitHub
+                    </a>
+                    <a href="https://docs.gitbench.dev" class="flex-1 inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                        📚 Read Docs
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4 gradient-text">Gitbench</h3>
+                    <p class="text-gray-400 text-sm">
+                        Git-native evaluation platform for LLM agents.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#features" class="hover:text-white">Features</a></li>
+                        <li><a href="#how-it-works" class="hover:text-white">How It Works</a></li>
+                        <li><a href="#comparison" class="hover:text-white">Comparison</a></li>
+                        <li><a href="https://docs.gitbench.dev">Documentation</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Community</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="https://github.com/gitbench/gitbench" class="hover:text-white">GitHub</a></li>
+                        <li><a href="https://discord.gg/gitbench" class="hover:text-white">Discord</a></li>
+                        <li><a href="https://twitter.com/gitbench" class="hover:text-white">Twitter</a></li>
+                        <li><a href="https://gitbench.dev/blog">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="/about" class="hover:text-white">About</a></li>
+                        <li><a href="/careers" class="hover:text-white">Careers</a></li>
+                        <li><a href="/contact" class="hover:text-white">Contact</a></li>
+                        <li><a href="/privacy" class="hover:text-white">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2026 Gitbench. Don't trust agents without evals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smooth Scroll Script -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

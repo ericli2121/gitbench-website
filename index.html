@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gitbench - pytest for AI Agents</title>
-    <meta name="description" content="Git-native evaluation platform that tracks LLM agent performance across every commit. Like CI/CD for agent quality.">
+    <meta name="description" content="The infrastructure for eval-driven development. Organize, version, and compare AI agent evals. Protect eval IP, build trust through systematic evaluation, and access industrial-grade eval marketplace.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -65,8 +65,9 @@
                     pytest for <span class="gradient-text">AI Agents</span>
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                    Git-native evaluation platform that tracks LLM agent performance across every commit.
-                    <strong>Don't trust agents without evals.</strong>
+                    The only git-native evaluation platform built for <strong>eval-driven development</strong>.
+                    Track, compare, and improve agent quality across every commit.
+                    <strong>As agents take on harder tasks, trust requires evals.</strong>
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                     <a href="#get-started" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 shadow-lg">
@@ -115,30 +116,41 @@
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold text-gray-900 mb-4">The Problem</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Everyone is building AI agents, but nobody can measure quality or discover good agents
+                    As AI agents tackle more complex tasks, trust becomes critical. But companies struggle to organize, run, and track evals at scale.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12">
+            <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-red-50 rounded-lg p-8 border-2 border-red-200">
-                    <div class="text-4xl mb-4">😓</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">No Easy Way to Benchmark</h3>
+                    <div class="text-4xl mb-4">🚨</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Trust Erodes Without Evals</h3>
                     <ul class="space-y-3 text-gray-600">
-                        <li>✗ Manual testing doesn't scale</li>
+                        <li>✗ Agents taking on critical tasks</li>
                         <li>✗ No systematic quality measurement</li>
-                        <li>✗ Can't track performance across code changes</li>
-                        <li>✗ "Did my prompt change help or hurt?" is unanswerable</li>
+                        <li>✗ Can't prove agent reliability</li>
+                        <li>✗ Teams lose confidence in automation</li>
                     </ul>
                 </div>
 
                 <div class="bg-red-50 rounded-lg p-8 border-2 border-red-200">
-                    <div class="text-4xl mb-4">🔍</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">No Place to Find Evaluated Agents</h3>
+                    <div class="text-4xl mb-4">📦</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Evals Are Scattered & Disorganized</h3>
                     <ul class="space-y-3 text-gray-600">
-                        <li>✗ GitHub has 156K+ agent repos with no quality signals</li>
-                        <li>✗ Can't tell if an agent works before installing</li>
-                        <li>✗ Everyone rebuilds similar agents from scratch</li>
-                        <li>✗ Star counts ≠ actual quality</li>
+                        <li>✗ Companies building their own evals</li>
+                        <li>✗ No central place to store and version evals</li>
+                        <li>✗ Can't compare results across runs</li>
+                        <li>✗ Eval results lost in Slack/Notion/spreadsheets</li>
+                    </ul>
+                </div>
+
+                <div class="bg-red-50 rounded-lg p-8 border-2 border-red-200">
+                    <div class="text-4xl mb-4">💎</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Evals Are Valuable IP</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li>✗ High-quality evals are hard to create</li>
+                        <li>✗ Agents self-improve against evals</li>
+                        <li>✗ No marketplace to buy industrial-grade evals</li>
+                        <li>✗ Everyone reinvents eval suites from scratch</li>
                     </ul>
                 </div>
             </div>
@@ -151,37 +163,124 @@
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold text-gray-900 mb-4">The Solution</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Treat agent evals like unit tests — run them in CI/CD, track results with git
+                    <strong>Eval-driven development:</strong> Organize, version, and compare evals like code. Make evals as important as your agents.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white rounded-lg p-8 shadow-lg">
-                    <div class="text-4xl mb-4">⚡</div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Git-Native Testing</h3>
+                    <div class="text-4xl mb-4">📁</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Organized Eval Management</h3>
                     <p class="text-gray-600">
-                        Run eval suite on every commit. Results stored in <code class="bg-gray-100 px-2 py-1 rounded">.gitbench/</code>
-                        alongside your code. Version control for agent quality.
+                        Store evals in <code class="bg-gray-100 px-2 py-1 rounded">.gitbench/</code> alongside your agent code.
+                        Version, organize, and protect your eval IP. Run them consistently across your team.
                     </p>
                 </div>
 
                 <div class="bg-white rounded-lg p-8 shadow-lg">
                     <div class="text-4xl mb-4">📊</div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Historical Tracking</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Visualize & Compare Results</h3>
                     <p class="text-gray-600">
-                        See performance trends across commits. Instant regression detection.
-                        Know exactly when quality improved or degraded.
+                        Beautiful dashboards show performance trends across commits. Compare runs side-by-side.
+                        Instant regression detection. Know exactly when quality changed.
                     </p>
                 </div>
 
                 <div class="bg-white rounded-lg p-8 shadow-lg">
                     <div class="text-4xl mb-4">🏪</div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Verified Marketplace</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Eval Marketplace</h3>
                     <p class="text-gray-600">
-                        Discover agents with real eval scores (94% pass rate, not just ⭐⭐⭐⭐⭐).
-                        Install with benchmarks included.
+                        Discover and purchase industrial-grade evals. Evaluate your agents against proven benchmarks.
+                        Sell your proprietary evals. Build eval-driven development culture.
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eval-Driven Development Section -->
+    <section class="py-20 bg-white border-t-4 border-purple-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Eval-Driven Development: <span class="gradient-text">The New Paradigm</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    In the age of AI agents, evals are as important as the agents themselves
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-lg flex items-center justify-center text-white text-xl font-bold">1</div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Evals Are Company IP</h3>
+                                <p class="text-gray-600">
+                                    Your eval suite is as valuable as your agent code. It captures domain expertise, edge cases, and quality standards that took months to develop.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-lg flex items-center justify-center text-white text-xl font-bold">2</div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Agents Self-Improve Against Evals</h3>
+                                <p class="text-gray-600">
+                                    Modern AI agents analyze their eval failures and automatically generate improvements. Your eval suite becomes the training ground for continuous agent optimization.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-lg flex items-center justify-center text-white text-xl font-bold">3</div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Trust Scales With Eval Coverage</h3>
+                                <p class="text-gray-600">
+                                    As agents tackle harder tasks, trust requires proof. A comprehensive eval suite with consistent 95%+ pass rates is how you earn that trust.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">The Eval-Driven Loop</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-purple-600">
+                            <div class="font-semibold text-gray-900">1. Build Eval Suite</div>
+                            <div class="text-sm text-gray-600">Create comprehensive test cases that capture quality standards</div>
+                        </div>
+                        <div class="text-center text-2xl text-gray-400">↓</div>
+                        <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-indigo-600">
+                            <div class="font-semibold text-gray-900">2. Run on Every Commit</div>
+                            <div class="text-sm text-gray-600">Automatic evaluation in CI/CD pipeline</div>
+                        </div>
+                        <div class="text-center text-2xl text-gray-400">↓</div>
+                        <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-purple-600">
+                            <div class="font-semibold text-gray-900">3. Agent Self-Improves</div>
+                            <div class="text-sm text-gray-600">AI analyzes failures and generates fixes automatically</div>
+                        </div>
+                        <div class="text-center text-2xl text-gray-400">↓</div>
+                        <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-indigo-600">
+                            <div class="font-semibold text-gray-900">4. Track & Compare</div>
+                            <div class="text-sm text-gray-600">Visualize performance trends, prove quality improvements</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-gradient-to-r from-purple-100 to-indigo-100 rounded-lg p-8 text-center">
+                <p class="text-lg text-gray-800 font-semibold">
+                    "Companies that treat evals as first-class artifacts will outpace those that don't. Eval-driven development is the TDD of the AI era."
+                </p>
             </div>
         </div>
     </section>
@@ -191,14 +290,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Gitbench?</h2>
-                <p class="text-xl text-gray-600">The only eval platform built for developers, not data scientists</p>
+                <p class="text-xl text-gray-600">The infrastructure for eval-driven development — organize, protect, and monetize your eval IP</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Feature Cards -->
                 <div class="p-6 bg-gray-50 rounded-lg">
-                    <h4 class="font-semibold text-lg mb-2">💾 Own Your Data</h4>
-                    <p class="text-gray-600 text-sm">Results in your repo, not vendor's database. Git push to backup.</p>
+                    <h4 class="font-semibold text-lg mb-2">💎 Protect Your Eval IP</h4>
+                    <p class="text-gray-600 text-sm">Evals stored in your repo with full version control. Your IP stays yours.</p>
                 </div>
 
                 <div class="p-6 bg-gray-50 rounded-lg">
@@ -232,13 +331,13 @@
                 </div>
 
                 <div class="p-6 bg-gray-50 rounded-lg">
-                    <h4 class="font-semibold text-lg mb-2">🏢 On-Premise Marketplace</h4>
-                    <p class="text-gray-600 text-sm">Internal agent discovery within corporate firewall.</p>
+                    <h4 class="font-semibold text-lg mb-2">🛒 Buy Industrial Evals</h4>
+                    <p class="text-gray-600 text-sm">Access industry-standard eval suites. Evaluate your agents against proven benchmarks.</p>
                 </div>
 
                 <div class="p-6 bg-gray-50 rounded-lg">
-                    <h4 class="font-semibold text-lg mb-2">📦 Agent-Eval Bundling</h4>
-                    <p class="text-gray-600 text-sm">Agents ship with their benchmarks. Install code + tests together.</p>
+                    <h4 class="font-semibold text-lg mb-2">💰 Monetize Your Evals</h4>
+                    <p class="text-gray-600 text-sm">Sell proprietary eval suites. Turn your domain expertise into revenue.</p>
                 </div>
             </div>
         </div>
@@ -364,7 +463,7 @@
 
             <div class="mt-12 text-center">
                 <p class="text-lg text-gray-600 italic">
-                    "They're building observability tools. Gitbench is building quality infrastructure."
+                    "They're building observability tools. Gitbench is building the infrastructure for eval-driven development — where evals are IP, not just logs."
                 </p>
             </div>
         </div>
@@ -373,9 +472,9 @@
     <!-- Get Started -->
     <section id="get-started" class="py-20 gradient-bg">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold text-white mb-8">Ready to Measure Agent Quality?</h2>
+            <h2 class="text-4xl font-bold text-white mb-8">Ready for Eval-Driven Development?</h2>
             <p class="text-xl text-purple-100 mb-12">
-                Join developers who treat agent evals like unit tests
+                Join companies that treat evals as first-class IP and build trust through systematic evaluation
             </p>
 
             <div class="bg-white rounded-lg shadow-xl p-8 text-left">
@@ -454,7 +553,7 @@ gitbench web-serve</code></pre>
             </div>
 
             <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-400">
-                <p>&copy; 2026 Gitbench. Don't trust agents without evals.</p>
+                <p>&copy; 2026 Gitbench. Eval-driven development for the AI era.</p>
             </div>
         </div>
     </footer>
